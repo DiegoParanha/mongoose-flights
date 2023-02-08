@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+
+<form id="new-form" action="/flights" method="POST">
+    <label>Airline:</label>
+    <select name="airline">
+        <option value="American" selected>American</option>
+        <option value="Delta" selected>Delta</option>
+        <option value="Spirit" selected>Spirit</option>
+        <option value="United" selected>United</option>
+    </select>
+    <label>Flight No.</label>
+    <input type="number">
+    <select name="airport">
+        <option value="LAX" selected>LAX</option>
+        <option value="JFK" selected>JFK</option>
+        <option value="ATL" selected>ATL</option>
+        <option value="DFW" selected>DFW</option>
+    </select>
+    <label>Departs:
+        <input type="datetime-local".format ='yyyy-MM-ddThh:mm'>
+        
+    </label>
+    <input type="submit" value="Add Flight">
+  </form>
+
+  <a href="/">Home</a>
+<%- include('../partials/footer') %>
+
+

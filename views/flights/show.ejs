@@ -1,29 +1,43 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <div>Flight </div>
-    <div><%= flight.airline %></div>
-    <div><%= flight.airport %></div>
-    <div><%= flight.flightNo %></div>
-    <div><%= flight.departs %></div>
-  </section>
+  <div>Flight </div>
+  <div><%= flight.airline %></div>
+  <div><%= flight.airport %></div>
+  <div><%= flight.flightNo %></div>
+  <div><%= flight.departs %></div>
+</section>
     
-  <br><br><h2>Reviews</h2>
-  <form id="add-review-form" method="POST"
-    action="/flights/<%= flight._id %>/reviews">
-    <label>Review:</label>
-    <textarea name="content"></textarea>
-    <label>Rating:</label>
-    <select name="rating">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5" selected>5</option>
+    <br><br><h2>Destinations</h2>
+    <form id="add-review-form" method="POST"
+    action="/flights/<%= flight._id %>/destinations">
+    <label>Arrival:</label>
+    <select name="destinations" id="date">
+      <option value=""></option>
+      <option value=""></option>
+      <option value=""></option>
     </select>
-    <input type="submit" value="Add Review">
+    <label>Airport:</label>
+    <select name="rating">
+      <option value="1">LAX</option>
+      <option value="2">JFK</option>
+      <option value="3">ATL</option>
+      <option value="4">DFW</option>
+      <option value="5" selected>none</option>
+    </select>
+    <input type="submit" value="Add Destination">
   </form>
- 
-
-
+  
+  <form action="/flights/<%= flight._id %>/tickets" method="POST">
+    <select name="ticketId">
+      <%- tickets.map(t => 
+      `<option value="${t._id}">${t.name}</option>`
+      ).join('') %>
+    </select>
+    <button type="submit">Add to Flight</button>
+  </form>
+  
+  
+  <a href="/">Home</a>
+  <a href="/flights">All Flights</a>
 <%- include('../partials/footer') %>

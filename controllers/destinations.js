@@ -1,5 +1,5 @@
-const flight = require('../models/flight');
 const Flight = require('../models/flight');
+
 
 module.exports = {
     create
@@ -7,7 +7,7 @@ module.exports = {
 
 function create(req, res) {
     Flight.findById(req.params.id, function(err, flight) {
-        flight.reviews.push(req.body);
+        flight.destinations.push(req.body);
         flight.save(function(err) {
             res.redirect(`/flights/${flight._id}`);
         });

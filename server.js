@@ -9,7 +9,8 @@ require('./config/database');
 
 var indexRouter = require('./routes/index');
 var flightsRouter = require('./routes/flights');
-var reviewsRouter = require('./routes/reviews');
+var destinationsRouter = require('./routes/destinations');
+var ticketsRouter = require('./routes/tickets')
 
 var app = express();
 

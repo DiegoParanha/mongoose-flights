@@ -7,11 +7,8 @@ const destinationSchema = new Schema({
         type: String,
         required: true
     },
-    rating: {
-        type: Number,
-        min: 1,
-        max: 5,
-        default: 5
+    arrival: {
+        Date
       }
     }, {
       timestamps: true
@@ -33,11 +30,10 @@ const flightSchema = new Schema({
         max: 9999
     },
     departs: {
-        type: Number,
-        default: function() {
-            return new Date().getFullYear();
-        }
-    } 
+        type: Date,
+        default: new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+    },
+    destinations: [destinationSchema]
 });
 
 module.exports = mongoose.model('Flight', flightSchema);

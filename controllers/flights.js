@@ -1,4 +1,5 @@
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket')
 
 module.exports = {
     index, 
@@ -22,10 +23,13 @@ function show(req, res) {
 
 function newFlight(req, res) {
     const newFlight = new Flight();
+    // Obtain the default date
     const dt = newFlight.departs;
+    console.log(dt);
+    // Format the date for the value attribute of the input
     let departsDate = `${dt.getFullYear()}-${(dt.getMonth() + 1).toString().padStart(2, '0')}`;
     departsDate += `-${dt.getDate().toString().padStart(2, '0')}T${dt.toTimeString().slice(0, 5)}`;
-    res.render('flights/new', { departsDate}, { title: 'Add Flight' });
+    res.render('flights/new', { departsDate, title: 'New Flight' });
 }
 
 function create(req, res) {

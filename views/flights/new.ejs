@@ -10,7 +10,7 @@
         <option value="United" selected>United</option>
     </select>
     <label>Flight No.</label>
-    <input type="number">
+    <input type="number" name="flightNo">
     <select name="airport">
         <option value="LAX" selected>LAX</option>
         <option value="JFK" selected>JFK</option>
@@ -18,13 +18,14 @@
         <option value="DFW" selected>DFW</option>
     </select>
     <label>Departs:
-        <input type="datetime-local".format ='yyyy-MM-ddThh:mm'>
+        <input type="datetime-local".format ='yyyy-MM-ddThh:mm' name="departs">
         
     </label>
     <input type="submit" value="Add Flight">
   </form>
 
   <a href="/">Home</a>
+  <a href="/flights">All Flights</a>
 <%- include('../partials/footer') %>
 
 

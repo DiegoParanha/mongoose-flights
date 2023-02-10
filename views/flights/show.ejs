@@ -13,9 +13,9 @@
     action="/flights/<%= flight._id %>/destinations">
     <label>Arrival:</label>
     <select name="destinations" id="date">
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
+      <option value="">Los Angeles</option>
+      <option value="">New York City</option>
+      <option value="">Chicago</option>
     </select>
     <label>Airport:</label>
     <select name="rating">
@@ -28,6 +28,7 @@
     <input type="submit" value="Add Destination">
   </form>
   
+  <br><br><h2>Tickets</h2>
   <form action="/flights/<%= flight._id %>/tickets" method="POST">
     <select name="ticketId">
       <%- tickets.map(t => 
